@@ -1,0 +1,89 @@
+package assignment;
+
+public class ConditionCheck {
+	public static void age(int a)
+	{
+		
+			if((a>0)&&(a<=16))
+			{
+				System.out.println("Child category");
+			}
+			else
+			{
+				if((16<a)&&(a<=40))
+				{
+					System.out.println("Adult Category");
+				}
+				else
+				{ 
+					if((40<a)&&(a<=55))
+					{
+						System.out.println("Mid age Category");
+					}
+					else
+					{
+						if(a>55)
+						{
+							System.out.println("Old Age Category");
+						}
+						else
+						{
+							System.out.println("Invalid Category");
+						}
+					}
+					
+				}
+				
+			}
+			
+		}
+	}
+
+
+Test class
+
+
+
+package assignment;
+
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+
+public class TestClass {
+	  int age;
+
+  @Test(priority=7)
+  public void A() 
+  {
+	   age=15;
+	  ConditionCheck.age(age);
+	  Reporter.log("Person belongs to child category", true);
+	  
+  }
+  @Test(priority=-1)
+  public void B()
+  {
+	  age=27;
+	  ConditionCheck.age(age);
+	  Reporter.log("Person belongs to adult category", true);
+	 
+}
+  @Test
+  public void C() 
+  {
+	   age=51;
+	  ConditionCheck.age(age);
+	  Reporter.log("Person belongs to Mid-age category", true);
+	  
+  }
+  @Test(priority=-3)
+  public void D() 
+  {
+	   age=60;
+	  ConditionCheck.age(age);
+	  Reporter.log("Person belongs to old category", true);
+	  
+  }
+
+
+}
